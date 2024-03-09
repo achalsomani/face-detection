@@ -7,8 +7,8 @@ from dataset import CustomDataset
 from model import SimpleCNN
 from paths import DATA_PATH, CSV_FILE, TESTING_DATA_PATH, TESTING_CSV_FILE
 
-STARTING_SHAPE = (250, 250)
-INPUT_SHAPE = (224, 224)
+STARTING_SHAPE = (225, 225)
+INPUT_SHAPE = (200, 200)
 BATCH_SIZE = 16
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -17,7 +17,7 @@ train_transforms = transforms.Compose([
     transforms.Resize(STARTING_SHAPE),
     transforms.RandomCrop(INPUT_SHAPE),
     transforms.ColorJitter(brightness=0.5),
-    transforms.RandomRotation(degrees=20),
+    transforms.RandomRotation(degrees=45),
     transforms.RandomHorizontalFlip(p=0.5),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),

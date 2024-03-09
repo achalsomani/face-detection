@@ -27,7 +27,6 @@ ENV/
 *.sqlite
 
 # Other project specific files
-*.csv
 *.json
 *.pkl
 
