@@ -26,6 +26,14 @@ class SimpleCNN(nn.Module):
         x = self.fc3(x)
         return x
 
+    def parameters(self):
+        return list(self.fc1.parameters()) + \
+            list(self.bn1.parameters()) + \
+            list(self.fc2.parameters()) + \
+            list(self.bn2.parameters()) + \
+            list(self.fc3.parameters()) + \
+            list(self.dropout.parameters())
+
 
 class SimpleCNNOld(nn.Module):
     def __init__(self, input_shape, num_classes, dropout_rate=0.3):
